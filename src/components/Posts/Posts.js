@@ -10,6 +10,7 @@ const Posts = ({ setCurrentId }) => {
     const classes = useStyles();
 
     console.log(posts);
+   // console.log(setCurrentId);
 
     return (
         //!posts.lenght ? <CircularProgress/> : (
