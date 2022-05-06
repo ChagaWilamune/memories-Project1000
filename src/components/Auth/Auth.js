@@ -52,10 +52,12 @@ function Auth  ()  {
             console.log(error);
         }
     };
-    const googleFailure = (error) => {
-        console.log(error);
-        console.log("Google Sign In was unsuccessful. Try Again Later");
-    };
+    // const googleFailure = (error) => {
+    //     console.log(error);
+    //     console.log("Google Sign In was unsuccessful. Try Again Later");
+    // };
+
+    const googleFailure = () => console.log("Google Sign In was unsuccessful. Try Again Later");
 
   return (
     <Container component="main" maxWidth="xs">
