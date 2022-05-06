@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import moment from 'moment';
 import { useParams, useNavigate } from 'react-router-dom';
 
+import CommentSection from './CommentSection';
 import useStyles from './styles';
 import { getPost, getPostsBySearch } from '../../actions/posts';
 
@@ -52,18 +53,20 @@ const PostDetails = () => {
           <Divider style={{ margin: '20px 0' }} />
           <Typography variant="body1"><strong>Comments - coming soon!</strong></Typography>
           <Divider style={{ margin: '20px 0' }} />
+          <CommentSection post={post} />
+          <Divider style={{ margin: '20px 0' }} />
         </div>
         <div className={classes.imageSection}>
           <img className={classes.media} src={post.selectedFile || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} alt={post.title} />
         </div>
       </div>
-      {recommendedPosts.length && (
+      { !! recommendedPosts.length && (
         <div className={classes.section}>
           <Typography gutterBottom variant="5" >You might also like</Typography>
           <Divider />
           <div className={classes.recommendedPosts}>
             {recommendedPosts.map(({ title, message, name, likes, selectedFile, _id }) => (
-              <div style={{ margin: '20px', cursor: 'pointer' }} onClick={() => openPost(_id)} key={_id}>
+              <div style={{ margin: '20px', cursor: 'pointer' }} onClick={() => openPost(_id)} key={post._id}>
                 <Typography gutterBottom variant="h6">{title}</Typography>
                 <Typography gutterBottom variant="subtitle2">{name}</Typography>
                 <Typography gutterBottom variant="subtitle2">{message}</Typography>
